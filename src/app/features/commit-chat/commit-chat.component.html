@@ -1,0 +1,51 @@
+<div class="wrapper">
+
+  <!-- HEADER -->
+  <div class="header">
+    <div class="system-name">
+      Conventional Commit Chat
+    </div>
+  </div>
+
+  <!-- CHAT -->
+  <div class="chat-window" #chatWindow>
+    <div *ngFor="let msg of messages" class="message" [ngClass]="msg.role">
+      <div class="bubble">
+        <pre>{{ msg.content }}</pre>
+
+        <div *ngIf="msg.buttons" class="button-group">
+          <button *ngFor="let b of msg.buttons"
+                  (click)="select(b.value)"
+                  class="commit-type-btn">
+
+            <div class="btn-title">
+              {{ b.label }}
+            </div>
+
+            <div class="btn-description" *ngIf="b.description">
+              {{ b.description }}
+            </div>
+
+          </button>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- INPUT -->
+  <div class="input-area"
+       *ngIf="step <= 6 && !messages[messages.length-1]?.buttons && !hasGeneratedCommit()">
+    <input [(ngModel)]="input"
+           (keyup.enter)="send()"
+           placeholder="Digite sua resposta..." />
+    <button (click)="send()">Enviar</button>
+  </div>
+
+  <!-- FOOTER -->
+  <div class="footer" *ngIf="hasGeneratedCommit()">
+    <button (click)="copyCommit()">📋 Copiar Commit</button>
+    <button (click)="reset()">Novo Commit</button>
+  </div>
+
+</div>

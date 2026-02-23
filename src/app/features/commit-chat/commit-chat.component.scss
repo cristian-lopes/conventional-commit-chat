@@ -1,0 +1,139 @@
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+/* WRAPPER ocupa 100% da tela */
+.wrapper {
+  position: fixed;
+  inset: 0; /* top:0 right:0 bottom:0 left:0 */
+  display: flex;
+  flex-direction: column;
+  background: #343541;
+  color: white;
+  font-family: Arial, sans-serif;
+}
+
+.message {
+  display: flex;
+  margin-bottom: 20px;
+}
+
+.assistant { justify-content: flex-start; }
+.user { justify-content: flex-end; }
+
+.bubble {
+  max-width: 70%;
+  padding: 15px;
+  border-radius: 10px;
+  white-space: pre-wrap;
+}
+
+.assistant .bubble { background: #444654; }
+.user .bubble { background: #19c37d; color: black; }
+
+/* INPUT fixo na parte inferior do wrapper */
+.input-area {
+  padding: 20px;
+  background: #40414f;
+  border-top: 1px solid #3a3b45;
+}
+
+input {
+  flex: 1;
+  padding: 12px;
+  border-radius: 5px;
+  border: none;
+  margin-right: 10px;
+  width: auto;
+}
+
+button {
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  background: #19c37d;
+  cursor: pointer;
+  margin: 3px;
+}
+
+.button-group {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 10px;
+}
+
+.button-group button {
+  flex: none;
+  margin-right: 8px;
+  margin-bottom: 5px;
+}
+
+.commit-type-btn {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+  padding: 10px 14px;
+  border-radius: 8px;
+  background: #2f3038;
+  color: white;
+  border: 1px solid #555;
+  min-width: 240px;
+  transition: all 0.2s ease;
+}
+
+.commit-type-btn:hover {
+  background: #3a3b45;
+  border-color: #19c37d;
+}
+
+.btn-title {
+  font-weight: bold;
+  font-size: 14px;
+  margin-bottom: 4px;
+}
+
+.btn-description {
+  font-size: 12px;
+  opacity: 0.7;
+}
+
+/* HEADER fixo no topo */
+.header {
+  height: 60px;
+  min-height: 60px;
+  background: #202123;
+  display: flex;
+  align-items: center;
+  padding: 0 25px;
+  border-bottom: 1px solid #3a3b45;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.system-name {
+  font-size: 18px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+/* CHAT ocupa o espaço restante e rola sozinho */
+.chat-window {
+  flex: 1;
+  overflow-y: auto;
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+}
+
+/* FOOTER fixo no bottom quando aparece */
+.footer {
+  padding: 20px;
+  background: #40414f;
+  border-top: 1px solid #3a3b45;
+  display: flex;
+  gap: 10px;
+}
